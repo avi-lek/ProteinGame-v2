@@ -5,11 +5,11 @@ import py3Dmol
 import os
 import Bio
 from Bio.PDB.PDBIO import PDBIO
-from puzzles.puzzle_help import pdb_to_fasta
 from Bio.PDB import *
 import py3Dmol
 from utils import *
 import pandas as pd
+from atom_select_utils import *
 
 # gets PDB content
 def get_pdb_content():
@@ -27,10 +27,10 @@ def get_pdb_content():
         return system
 
 
-
 def vis_none():
     #Load in PDB Structure
     system = get_pdb_content()
+    system = select_atoms(system)
     view = py3Dmol.view(height=600)
     #add models
     if st.session_state["style"][0]:
@@ -50,12 +50,16 @@ def vis_none():
     i = 0
     for line in system.split('\n'):
         split = line.split()
-        if len(split) == 0 or split[0] != "ATOM":
-            continue
+        i=int(split[1])-1
+        #if len(split) == 0 or split[0] != "ATOM":
+            #continue
         if st.session_state["style"][0]:
+            #view.setStyle({'model': 0, 'serial': i+1}, {"sphere": {'color':'blue' , "scale":0.3}})
+            #view.setStyle({'model': 1, 'serial': i+1}, {'stick': {'color': 'gray' , "scale":0.3}})
             view.setStyle({'model': 0, 'serial': i+1}, {"sphere": {'color':ball_stick_color(split) , "scale":0.3}})
             view.setStyle({'model': 1, 'serial': i+1}, {'stick': {'color': ball_stick_color(split) , "scale":0.3}})
         if st.session_state["style"][1]:
+            #view.setStyle({'model': -1, 'serial': i+1}, {'cartoon': {'color': 'red', "opacity":st.session_state["ribbon_opacity"]}})
             view.setStyle({'model': -1, 'serial': i+1}, {'cartoon': {'color': color_func(split), "opacity":st.session_state["ribbon_opacity"]}})
             
         i += 1
