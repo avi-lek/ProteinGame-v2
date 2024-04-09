@@ -463,13 +463,13 @@ def q_viz(file, color):
 def rna_to_DNA(rna):
     opp_dna = []
     for i in list(rna):
-        if i=="A":
+        if i=="A" or i=="a":
             opp_dna.append("T")
-        elif i=="U":
+        elif i=="U" or i=="u":
             opp_dna.append("A")
-        elif i =="C":
+        elif i =="C" or i=="c":
             opp_dna.append("G")
-        elif i =="G":
+        elif i =="G" or i =="g":
             opp_dna.append("C")
     return "".join(opp_dna)
     
