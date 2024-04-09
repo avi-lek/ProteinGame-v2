@@ -102,7 +102,7 @@ def viz_dna(choice):
     
     dna_colors = []
     rna_colors = []
-    color_dict = {"A":"Red", "U":"Blue", "G":'Yellow', "C":"Green", "T":"Purple"}
+    color_dict = {"A":"Red", "U":"Blue", "G":'Yellow', "C":"Green", "T":"Purple", "a":"Red", "u":"Blue", "g":'Yellow', "c":"Green", "t":"Purple"}
     
     for i in st.session_state["puzzle_info"][choice+"_rna_window"]:
         dna_colors.append(color_dict[rna_to_DNA(i)])
@@ -181,8 +181,8 @@ def transcript_dogma():
     }
     place1 = st.empty()
     with place1.container():
-        wrna_text = st.text_input("Wild-Type mRNA Sequence", max_chars=30, disabled=st.session_state["input_checks"][0])
-        if wrna_text.isalpha() and is_rna(wrna_text.upper()):
+        wrna_text = st.text_input("Wild-Type mRNA Sequence", max_chars=30, disabled=st.session_state["input_checks"][0]).upper()
+        if wrna_text.isalpha() and is_rna(wrna_text):
             st.session_state["w_change_rna"] = wrna_text
         else:
             if wrna_text != '':
@@ -202,7 +202,7 @@ def transcript_dogma():
             place1.empty()
         else:
             st.error('Incorrect Transcription', icon="🚨")
-            #st.write(st.session_state["puzzle_info"]['w_rna_window'])
+            st.write(st.session_state["puzzle_info"]['w_rna_window'])
             st.session_state["input_checks"][0]=False
             
     st.divider()
@@ -238,7 +238,7 @@ def transcript_dogma():
             st.session_state["input_checks"][1]=True
         else:
             st.error('Incorrect Transcription', icon="🚨")
-            #st.write(st.session_state["puzzle_info"]['m_rna_window'])
+            st.write(st.session_state["puzzle_info"]['m_rna_window'])
             st.session_state["input_checks"][1]=False
     if st.session_state["input_checks"][0]==True and st.session_state["input_checks"][1]==True:
         st.switch_page("other_pages//Translation.py")
@@ -312,7 +312,7 @@ def translation():
             st.session_state["trans_correct"][0]=True
             place1.empty()
         else:
-            #st.write(rna_to_amino_acids(st.session_state["w_change_rna"]))
+            st.write(rna_to_amino_acids(st.session_state["w_change_rna"]))
             st.error('Incorrect Translation', icon="🚨")
             st.session_state["trans_correct"][0]=False
             
@@ -340,7 +340,7 @@ def translation():
             place2.empty()
             st.session_state["trans_correct"][1]=True
         else:
-            #st.write(rna_to_amino_acids(st.session_state["m_change_rna"]))
+            st.write(rna_to_amino_acids(st.session_state["m_change_rna"]))
             st.error('Incorrect Translation', icon="🚨")
             st.session_state["trans_correct"][0]=False
             
@@ -351,7 +351,7 @@ def translation():
         st.switch_page("other_pages//MutationQuiz.py")
 
 def select_mut_type():
-    #st.write(st.session_state.select_mut_type)
+    st.write(st.session_state.select_mut_type)
     if st.session_state["select_mut_type_bool"]!=None:
         if st.session_state['puzzle_info']["m_type"][0].upper() == st.session_state.select_mut_type[0]:
             st.session_state["select_mut_type_bool"]=True
@@ -378,7 +378,7 @@ def mut_quiz():
                 check_substitution()
         else:
             st.error('Incorrect', icon="🚨")
-            #st.write(st.session_state['puzzle_info']["m_type"][0].upper())
+            st.write(st.session_state['puzzle_info']["m_type"][0].upper())
 import time
 def check_insertion():
     w_dna = "".join(st.session_state["df_w"].iloc[0].tolist()[1:])#[3:]
@@ -446,8 +446,8 @@ def check_substitution():
                     st.switch_page("other_pages//Practice.py")
                 else:
                     st.error('Incorrect', icon="🚨")
-                    #st.write("You Inputed: "+ output)
-                    #st.write("The Answer: "+ m_dna[0:30])
+                    st.write("You Inputed: "+ output)
+                    st.write("The Answer: "+ m_dna[0:30])
 
 
 
