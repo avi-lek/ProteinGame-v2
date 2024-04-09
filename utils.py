@@ -5,7 +5,6 @@ from sandbox_functions import *
 import streamlit.components.v1 as components
 import ipywidgets as widgets
 from ipywidgets import embed
-import ipyspeck
 import requests
 
 #adapted from stmol to include residue names and reflect the color of residues
