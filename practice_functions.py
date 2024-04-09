@@ -202,7 +202,7 @@ def transcript_dogma():
             place1.empty()
         else:
             st.error('Incorrect Transcription', icon="🚨")
-            #st.write(st.session_state["puzzle_info"]['w_rna_window'])
+            st.write(st.session_state["puzzle_info"]['w_rna_window'])
             st.session_state["input_checks"][0]=False
             
     st.divider()
@@ -217,7 +217,7 @@ def transcript_dogma():
                     placeholder.empty()
     place2 = st.empty()
     with place2.container():
-        mrna_text = st.text_input("Mutated mRNA Sequence", max_chars=30, disabled=st.session_state["input_checks"][1])
+        mrna_text = st.text_input("Mutated mRNA Sequence", max_chars=30, disabled=st.session_state["input_checks"][1]).upper()
         if mrna_text.isalpha() and is_rna(mrna_text.upper()):
             st.session_state["m_change_rna"] = mrna_text
         else:
@@ -238,7 +238,7 @@ def transcript_dogma():
             st.session_state["input_checks"][1]=True
         else:
             st.error('Incorrect Transcription', icon="🚨")
-            #st.write(st.session_state["puzzle_info"]['m_rna_window'])
+            st.write(st.session_state["puzzle_info"]['m_rna_window'])
             st.session_state["input_checks"][1]=False
     if st.session_state["input_checks"][0]==True and st.session_state["input_checks"][1]==True:
         st.switch_page("other_pages//Translation.py")
@@ -292,7 +292,7 @@ def translation():
     }
     place1 = st.empty()
     with place1.container():
-        waa_text = st.text_input("Wild-Type Amino Acid Sequence", max_chars=10, disabled=st.session_state["trans_correct"][0])
+        waa_text = st.text_input("Wild-Type Amino Acid Sequence", max_chars=10, disabled=st.session_state["trans_correct"][0]).upper()
         if waa_text.isalpha() and is_aa(waa_text.upper()):
             st.session_state["w_aa_change"] = waa_text
         else:
@@ -312,14 +312,14 @@ def translation():
             st.session_state["trans_correct"][0]=True
             place1.empty()
         else:
-            #st.write(rna_to_amino_acids(st.session_state["w_change_rna"]))
+            st.write(rna_to_amino_acids(st.session_state["w_change_rna"]))
             st.error('Incorrect Translation', icon="🚨")
             st.session_state["trans_correct"][0]=False
             
     st.divider()
     place2 = st.empty()
     with place2.container():
-        maa_text = st.text_input("Mutated Amino Acid Sequence", max_chars=10, disabled=st.session_state["trans_correct"][1])
+        maa_text = st.text_input("Mutated Amino Acid Sequence", max_chars=10, disabled=st.session_state["trans_correct"][1]).upper()
         if maa_text.isalpha() and is_aa(maa_text.upper()):
             st.session_state["m_aa_change"] = maa_text
         else:
@@ -340,7 +340,7 @@ def translation():
             place2.empty()
             st.session_state["trans_correct"][1]=True
         else:
-            #st.write(rna_to_amino_acids(st.session_state["m_change_rna"]))
+            st.write(rna_to_amino_acids(st.session_state["m_change_rna"]))
             st.error('Incorrect Translation', icon="🚨")
             st.session_state["trans_correct"][0]=False
             
@@ -378,7 +378,7 @@ def mut_quiz():
                 check_substitution()
         else:
             st.error('Incorrect', icon="🚨")
-            #st.write(st.session_state['puzzle_info']["m_type"][0].upper())
+            st.write(st.session_state['puzzle_info']["m_type"][0].upper())
 import time
 def check_insertion():
     w_dna = "".join(st.session_state["df_w"].iloc[0].tolist()[1:])#[3:]
@@ -429,7 +429,7 @@ def check_substitution():
         text=w_dna,
         labels=[("Select Substituted Bases", "#faffc9")],
     )
-    insert = st.text_input("Substitued Bases", max_chars=30)
+    insert = st.text_input("Substitued Bases", max_chars=30).upper()
     if len(insert)>0 and len(result)>0:
         if len(insert)!=len(result[0]["text"]):
             st.warning("Both sequence must have equal length for substitution.")
@@ -463,13 +463,13 @@ def q_viz(file, color):
 def rna_to_DNA(rna):
     opp_dna = []
     for i in list(rna):
-        if i=="A":
+        if i=="A" or i=="a":
             opp_dna.append("T")
-        elif i=="U":
+        elif i=="U" or i=="u":
             opp_dna.append("A")
-        elif i =="C":
+        elif i =="C" or i=="c":
             opp_dna.append("G")
-        elif i =="G":
+        elif i =="G" or i =="g":
             opp_dna.append("C")
     return "".join(opp_dna)
     
