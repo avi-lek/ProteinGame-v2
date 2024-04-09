@@ -54,8 +54,6 @@ def vis_none():
         #if len(split) == 0 or split[0] != "ATOM":
             #continue
         if st.session_state["style"][0]:
-            #view.setStyle({'model': 0, 'serial': i+1}, {"sphere": {'color':'blue' , "scale":0.3}})
-            #view.setStyle({'model': 1, 'serial': i+1}, {'stick': {'color': 'gray' , "scale":0.3}})
             view.setStyle({'model': 0, 'serial': i+1}, {"sphere": {'color':ball_stick_color(split) , "scale":0.3}})
             view.setStyle({'model': 1, 'serial': i+1}, {'stick': {'color': ball_stick_color(split) , "scale":0.3}})
         if st.session_state["style"][1]:

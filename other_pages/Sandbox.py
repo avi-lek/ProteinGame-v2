@@ -24,13 +24,14 @@ if "instructions_read" not in st.session_state or st.sidebar.button("Instruction
 
 #Set up sidebar
 #Define the two tabs
-settings, viz_settings, info = st.sidebar.tabs(["General Settings", "Visualization Settings", "Source Protein Info"])
+settings, viz_settings = st.sidebar.tabs(["General Settings", "Visualization Settings"])
 st.session_state["viz_settings"] = viz_settings
 #Get PDB ID
 protein_ids = {
+    'Glucagon': '1GCN',
+    'Insulin': '3I40',
     'Myoglobin': '1MBN',
     'Human Growth Hormone': '1HGU',
-    'Glucagon': '1GCN',
     'Human Rac1 G-protein': '1MH1',
     'Beetle Antifreeze Protein': '1EZG',
     'Hemoglobin': '1a3n'
