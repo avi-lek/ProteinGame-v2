@@ -15,17 +15,6 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True)
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            div.embeddedAppMetaInfoBar_container__DxxL1 {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
-
-
 
 if "instructions_read" not in st.session_state or st.sidebar.button("Instructions"):
     st.session_state["instructions_read"] = True
