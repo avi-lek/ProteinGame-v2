@@ -8,6 +8,7 @@ from Bio.PDB.PDBIO import PDBIO
 from Bio.PDB import *
 import py3Dmol
 from utils import *
+from utils import add_hover_gen
 import pandas as pd
 from atom_select_utils import *
 
