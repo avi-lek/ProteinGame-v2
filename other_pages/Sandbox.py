@@ -15,8 +15,13 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True)
-
-
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 if "instructions_read" not in st.session_state or st.sidebar.button("Instructions"):
     st.session_state["instructions_read"] = True
