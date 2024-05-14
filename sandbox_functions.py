@@ -7,10 +7,9 @@ import Bio
 from Bio.PDB.PDBIO import PDBIO
 from Bio.PDB import *
 import py3Dmol
-from utils import *
-from utils import add_hover_gen
+from utils import get_esm_pdb, add_hover, add_hover_gen, showmol
 import pandas as pd
-from atom_select_utils import *
+from atom_select_utils import select_atoms
 
 # gets PDB content
 def get_pdb_content():

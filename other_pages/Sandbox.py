@@ -1,7 +1,7 @@
 import streamlit as st
 from sandbox_functions import *
 from st_pages import hide_pages
-from utils import *
+#from utils import *
 st.set_page_config(page_title="My Protein Is Broken!", page_icon=":dna:", layout="wide")
 hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
 st.header("Sandbox")
@@ -15,7 +15,6 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True)
-
 
 
 if "instructions_read" not in st.session_state or st.sidebar.button("Instructions"):
@@ -92,7 +91,6 @@ if exists(f'https://files.rcsb.org/download/{st.session_state["code"].upper()}.p
 else:
     if len(st.session_state["code"])>0:
         settings.warning("Invalid Protein ID")
-#change_theme()
 
 
 
