@@ -18,7 +18,7 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True)
-show_pages_from_config()
+#show_pages_from_config()
 
 # Write Instructions
 st.markdown('''Welcome to ‘My Protein is Broken!’''')
