@@ -2,7 +2,7 @@ import streamlit as st
 from st_pages import hide_pages
 
 st.set_page_config(page_title="My Protein Is Broken!", page_icon=":dna:", layout="wide")
-hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
+#hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
 st.markdown("""
         <style>
                .block-container {
@@ -14,7 +14,7 @@ st.header("Sandbox Instructions")
 layout, gen_settings, viz_settings = st.tabs(["Layout", "General Settings", "Visualization Settings"])
 
 if st.sidebar.button("Go To Sandbox"):
-    st.switch_page("other_pages//Sandbox.py")
+    st.switch_page("pages/Sandbox.py")
 
 with layout:
     st.markdown('''With the Sandbox, users are able to visualize protein structures and experiment with their amino acid sequences.''')

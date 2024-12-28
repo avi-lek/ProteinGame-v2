@@ -2,7 +2,7 @@ import streamlit as st
 from st_pages import hide_pages
 
 st.set_page_config(page_title="My Protein Is Broken!", page_icon=":dna:", layout="wide")
-hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
+#hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
 st.markdown("""
         <style>
                .block-container {
@@ -34,4 +34,4 @@ st.markdown("**If you understand central dogma and mutations, and you feel ready
 
 
 if st.sidebar.button("Start Puzzle"):
-    st.switch_page("other_pages//Transcription.py")
+    st.switch_page("pages/Transcription.py")

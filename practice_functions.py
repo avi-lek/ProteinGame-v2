@@ -241,7 +241,7 @@ def transcript_dogma():
             st.write(st.session_state["puzzle_info"]['m_rna_window'])
             st.session_state["input_checks"][1]=False
     if st.session_state["input_checks"][0]==True and st.session_state["input_checks"][1]==True:
-        st.switch_page("other_pages//Translation.py")
+        st.switch_page("pages/Translation.py")
 
 
 def transcription():
@@ -263,7 +263,7 @@ import re
 
 def translation():
     if "puzzle_info" not in st.session_state:
-        st.switch_page("other_pages//Practice.py")
+        st.switch_page("pages/Practice.py")
     if bool(~os.path.isfile("pdb//wild.pdb")):
         get_esm_pdb(rna_to_amino_acids(st.session_state["puzzle_info"]['w_rna']), "wild")
     if bool(~os.path.isfile("pdb//mut.pdb")):
@@ -276,7 +276,7 @@ def translation():
     if st.sidebar.button("New Puzzle"):
         for key in st.session_state.keys():
             del st.session_state[key]
-        st.switch_page("other_pages//Transcription.py")
+        st.switch_page("pages/Transcription.py")
     #Makes Popup Codon Chart
     with st.sidebar.expander("Codon Chart"):
         st.image('screenshots//codon_wheel.png')
@@ -348,7 +348,7 @@ def translation():
         st.toast('Correctly Translated!')
         st.session_state["df_w"] = df1
         st.session_state["df_m"] = df2
-        st.switch_page("other_pages//MutationQuiz.py")
+        st.switch_page("pages/MutationQuiz.py")
 
 def select_mut_type():
     st.write(st.session_state.select_mut_type)
@@ -361,7 +361,7 @@ def select_mut_type():
 
 def mut_quiz():
     if "puzzle_info" not in st.session_state:
-        st.switch_page("other_pages//Practice.py")
+        st.switch_page("pages/Practice.py")
     if "select_mut_type_bool" not in st.session_state:
         st.session_state["select_mut_type_bool"] = False
     st.dataframe(st.session_state["df_w"], use_container_width=True, hide_index=True)
@@ -395,7 +395,7 @@ def check_insertion():
                 del st.session_state[key]
             st.balloons()
             time.sleep(3)
-            st.switch_page("other_pages//Practice.py")
+            st.switch_page("pages/Practice.py")
         else:
             st.error('Incorrect', icon="🚨")
             #st.write("You Inputed: "+ del_seq)
@@ -417,7 +417,7 @@ def check_deletion():
                 del st.session_state[key]
             st.balloons()
             time.sleep(3)
-            st.switch_page("other_pages//Practice.py")
+            st.switch_page("pages/Practice.py")
         else:
             st.error('Incorrect', icon="🚨")
             #st.write("You Inputed: "+ del_seq)
@@ -443,7 +443,7 @@ def check_substitution():
                         del st.session_state[key]
                     st.balloons()
                     time.sleep(3)
-                    st.switch_page("other_pages//Practice.py")
+                    st.switch_page("pages/Practice.py")
                 else:
                     st.error('Incorrect', icon="🚨")
                     st.write("You Inputed: "+ output)

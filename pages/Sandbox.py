@@ -3,7 +3,7 @@ from sandbox_functions import *
 from st_pages import hide_pages
 #from utils import *
 st.set_page_config(page_title="My Protein Is Broken!", page_icon=":dna:", layout="wide")
-hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
+#hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
 st.header("Sandbox")
 st.markdown("""
         <style>
@@ -19,7 +19,7 @@ st.markdown("""
 
 if "instructions_read" not in st.session_state or st.sidebar.button("Instructions"):
     st.session_state["instructions_read"] = True
-    st.switch_page("other_pages//Sandbox_instructions.py")
+    st.switch_page("pages/Sandbox_instructions.py")
 
 #Set up sidebar
 #Define the two tabs
