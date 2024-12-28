@@ -6,7 +6,7 @@ hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instr
 st.markdown("""
         <style>
                .block-container {
-                    padding-top: 0rem;
+                    padding-top: 2rem;
                 }
         </style>
         """, unsafe_allow_html=True)

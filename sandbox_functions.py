@@ -9,7 +9,7 @@ from Bio.PDB import *
 import py3Dmol
 from utils import get_esm_pdb, add_hover, add_hover_gen, showmol
 import pandas as pd
-from atom_select_utils import select_atoms
+from atom_select_utils import select_atoms, pdb_to_fasta, pdb_to_fasta_esm, pdb_to_fasta_rcsb
 
 # gets PDB content
 def get_pdb_content():

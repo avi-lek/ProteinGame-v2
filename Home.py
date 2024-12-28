@@ -6,19 +6,19 @@ import toml
 #Configure Page
 st.set_page_config(page_title="My Protein Is Broken!", page_icon=":dna:", layout="wide")
 
-#hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
+hide_pages(["Transcription", "Identify Mutations", "Translation", "Sandbox Instructions"])
 st.header("Home")
 st.markdown("""
         <style>
                .block-container {
-                    padding-top: 1rem;
+                    padding-top: 2rem;
                     padding-bottom: 0rem;
                     padding-left: 1rem;
                     padding-right: 1rem;
                 }
         </style>
         """, unsafe_allow_html=True)
-#show_pages_from_config()
+#n=show_pages_from_config(".streamlit/pages.toml")
 
 # Write Instructions
 st.markdown('''Welcome to ‘My Protein is Broken!’''')
