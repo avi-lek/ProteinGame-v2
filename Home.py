@@ -1,5 +1,5 @@
 import streamlit as st
-from st_pages import hide_pages#, show_pages_from_config
+from st_pages import hide_pages
 from streamlit_extras.let_it_rain import rain 
 import toml
 
@@ -18,8 +18,6 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True)
-#n=show_pages_from_config(".streamlit/pages.toml")
-
 # Write Instructions
 st.markdown('''Welcome to ‘My Protein is Broken!’''')
 url_teacher = "https://docs.google.com/document/d/14zIgoskGYacwCwsGN8mQvRdwzLc7TBYxQ_2MY5g0cag/edit?usp=sharing"
