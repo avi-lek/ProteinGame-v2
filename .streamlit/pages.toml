@@ -6,18 +6,4 @@ name = "Sandbox"
 path = "pages/Sandbox_instructions.py"
 name = "Sandbox Instructions"
 
-#[[pages]]
-#path = "pages/Practice.py"
-name = "Mutations Practice"
 
-#[[pages]]
-#path = "pages/Transcription.py"
-#name = "Transcription"
-
-#[[pages]]
-#path = "pages/Translation.py"
-#name = "Translation"
-
-#[[pages]]
-#path = "pages/MutationQuiz.py"
-#name = "Identify Mutations"
